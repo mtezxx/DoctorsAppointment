@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DoctorsAppointment.Client.Views.PatientViews.PatientDashboardController">
+    <children>
+        <TabPane prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab text="Booking">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="234.0" prefWidth="600.0">
+                     <children>
+                        <DatePicker fx:id="calendar" layoutX="33.0" layoutY="77.0" onAction="#handleCalendar" />
+                        <Label layoutX="33.0" layoutY="48.0" text="Pick a date" />
+                        <Label layoutX="33.0" layoutY="128.0" text="Available time slots for a picked date" />
+                        <Button fx:id="reserveBtn" layoutX="269.0" layoutY="202.0" mnemonicParsing="false" onAction="#handleReserveBtn" style="-fx-background-color: #1C4B82;" text="Reserve" textFill="WHITE" />
+                        <ComboBox fx:id="timeSlots" layoutX="33.0" layoutY="158.0" onAction="#handleTimeSlots" prefWidth="150.0" />
+                        <TextField fx:id="symptomsTextField" layoutX="252.0" layoutY="77.0" />
+                        <Label layoutX="251.0" layoutY="48.0" text="Symptoms" />
+                     </children></AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="My reservations">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="showAppointments" layoutX="28.0" layoutY="21.0" prefHeight="243.0" prefWidth="350.0">
+                                    <columns>
+                                        <TableColumn prefWidth="25.0" text="#" fx:id="appointmentNumber" />
+                                        <TableColumn fx:id="appointmentDateColumn" prefWidth="144.00003051757812" text="Date" />
+                                        <TableColumn fx:id="appointmentStatusColumn" prefWidth="179.66668701171875" text="Status" />
+                                    </columns>
+                                </TableView>
+                                <Button fx:id="cancelButton" onAction="#cancelReservation" layoutX="21.0" layoutY="300.0" mnemonicParsing="false" style="-fx-background-color: #1C4B82;" text="Cancel reservation" textFill="WHITE" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</AnchorPane>
